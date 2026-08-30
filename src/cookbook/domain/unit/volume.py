@@ -1,18 +1,21 @@
 from enum import Enum
-from .metadata import UnitMetadata
+from .metadata import ScaledUnitMetadata
 
 
 class MetricVolumeUnit(Enum):
-    MILLILITER = UnitMetadata(symbol='mL', scale = 1)
-    LITER = UnitMetadata(symbol='L', scale = 1e3)
+    MILLILITER = ScaledUnitMetadata(symbol='mL', scale = 1)
+    LITER = ScaledUnitMetadata(symbol='L', scale = 1e3)
 
 
 
 class CustomaryVolumeUnit(Enum):
-    TEASPOON = UnitMetadata(symbol='tsp', scale=1/6)
-    TABLESPOON = UnitMetadata(symbol='tbsp', scale=1/2)
-    FLUID_OUNCE = UnitMetadata(symbol='fl oz', scale=1)
-    CUP = UnitMetadata(symbol='cup', scale=8)
-    PINT = UnitMetadata(symbol='pt', scale=16)
-    QUART = UnitMetadata(symbol='qt', scale=32)
-    GALLON = UnitMetadata(symbol='gal', scale=128)
+    TEASPOON = ScaledUnitMetadata(symbol='tsp', scale=1/6)
+    TABLESPOON = ScaledUnitMetadata(symbol='tbsp', scale=1/2)
+    FLUID_OUNCE = ScaledUnitMetadata(symbol='fl oz', scale=1)
+    CUP = ScaledUnitMetadata(symbol='cup', scale=8)
+    PINT = ScaledUnitMetadata(symbol='pt', scale=16)
+    QUART = ScaledUnitMetadata(symbol='qt', scale=32)
+    GALLON = ScaledUnitMetadata(symbol='gal', scale=128)
+
+
+VolumeUnit = MetricVolumeUnit | CustomaryVolumeUnit
